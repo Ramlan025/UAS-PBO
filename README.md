@@ -2,8 +2,7 @@
 = PEMPROGRAMAN BERORIENTASI OBJECT =
 
 * Task I UI DESIGN
-Android Studio Tutorial - Android Material Design UI no82
-Nama Project : Project82Nim
+Android Studio Tutorial - Android Material Design UI no82 *-->(Nama Project : Project82Nim)*
 
 * Task II ANDROID DEVELOPMENT
 Contact App - Java, SQLite, CRUD, Android Development
