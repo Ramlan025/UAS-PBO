@@ -41,6 +41,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     }
 
+
     // Insert Function to insert data in database
     public long insertContact(String image,String name,String phone,String email,String note,String addedTime,String updatedTime){
 
@@ -98,9 +99,10 @@ public class DbHelper extends SQLiteOpenHelper {
     // delete data by id
     public void deleteContact(String id){
         //get writable database
-        SQLiteDatabase db =  getWritableDatabase();
+        SQLiteDatabase db =  this.getWritableDatabase();
+
         //delete query
-        db.delete(Constants.TABLE_NAME,"WHERE"+" =? ", new String[]{id});
+        db.delete(Constants.TABLE_NAME,"id=?", new String[]{id});
         db.close();
     }
 
