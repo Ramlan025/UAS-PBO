@@ -1,5 +1,6 @@
 package id.ac.poliban.mi.ramlan.fda_e020320025.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,7 +38,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
 
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.tittle.setText(foodDomains.get(position).getTitle());
         holder.fee.setText(String.valueOf(foodDomains.get(position).getFee()));
         //Cách lấy ảnh ở drawable, truyền vào tên của ảnh ở thư mục drawable
@@ -46,13 +47,10 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
 
         Glide.with(holder.itemView.getContext()).load(drawableRecouseId).into(holder.pic);
 
-        holder.addBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
-                intent.putExtra("object",foodDomains.get(position));
-                holder.itemView.getContext().startActivity(intent);
-            }
+        holder.addBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+            intent.putExtra("object",foodDomains.get(position));
+            holder.itemView.getContext().startActivity(intent);
         });
     }
 
@@ -61,7 +59,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
         return foodDomains.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView tittle, fee;
         ImageView pic;
         TextView addBtn;
