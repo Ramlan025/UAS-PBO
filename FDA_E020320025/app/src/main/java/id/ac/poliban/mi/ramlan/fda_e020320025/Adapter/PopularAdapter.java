@@ -41,7 +41,7 @@ public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.tittle.setText(foodDomains.get(position).getTitle());
         holder.fee.setText(String.valueOf(foodDomains.get(position).getFee()));
-        //Cách lấy ảnh ở drawable, truyền vào tên của ảnh ở thư mục drawable
+        //How to get the image in the drawable, pass the name of the image in the drawable folder
         int drawableRecouseId = holder.itemView.getContext().getResources().getIdentifier(foodDomains.get(position).getPic(),"drawable",
                 holder.itemView.getContext().getPackageName());
 
